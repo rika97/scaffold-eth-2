@@ -14,7 +14,7 @@ contract WrappedRune is ERC20, ERC20Permit, Ownable {
     {}
 
     // Mint new tokens
-    function mint(address to, uint256 amount) external {
+    function mint(address to, uint256 amount) external onlyOwner(){
         _mint(to, amount);
     }
 }

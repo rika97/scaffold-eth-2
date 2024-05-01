@@ -1,4 +1,27 @@
-import * as chains from "viem/chains";
+import * as chains from "viem";
+import { defineChain } from "viem";
+
+export const harmony_mainnet = defineChain({
+  id: 1666700000, // Harmony Mainnet chain ID
+  name: "Harmony Mainnet",
+  nativeCurrency: {
+    decimals: 18,
+    name: "ONE",
+    symbol: "ONE",
+  },
+  rpcUrls: {
+    default: {
+      http: ["https://api.s0.b.hmny.io"], // RPC endpoint for HTTP
+      webSocket: ["wss://ws.s0.b.hmny.io"], // RPC endpoint for WebSocket
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: "Harmony Explorer",
+      url: "https://explorer.harmony.one", // Block explorer URL
+    },
+  },
+});
 
 export type ScaffoldConfig = {
   targetNetworks: readonly chains.Chain[];
@@ -10,7 +33,7 @@ export type ScaffoldConfig = {
 
 const scaffoldConfig = {
   // The networks on which your DApp is live
-  targetNetworks: [chains.hardhat],
+  targetNetworks: [harmony_mainnet],
 
   // The interval at which your front-end polls the RPC servers for new data
   // it has no effect if you only target the local network (default is 4000)

@@ -30,7 +30,7 @@ const config: HardhatUserConfig = {
       },
     },
   },
-  defaultNetwork: "localhost",
+  defaultNetwork: "harmony_mainnet",
   namedAccounts: {
     deployer: {
       // By default, it will take the first Hardhat account as the deployer
@@ -48,6 +48,11 @@ const config: HardhatUserConfig = {
     },
     mainnet: {
       url: `https://eth-mainnet.alchemyapi.io/v2/${providerApiKey}`,
+      accounts: [deployerPrivateKey],
+    },
+    harmony_mainnet: {
+      url: "https://api.harmony.one",
+      chainId: 1666600000,
       accounts: [deployerPrivateKey],
     },
     harmony_testnet: {
