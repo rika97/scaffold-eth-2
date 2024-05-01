@@ -2,7 +2,7 @@ import * as chains from "viem";
 import { defineChain } from "viem";
 
 export const harmony_mainnet = defineChain({
-  id: 1666700000, // Harmony Mainnet chain ID
+  id: 1666600000, // Harmony Mainnet chain ID
   name: "Harmony Mainnet",
   nativeCurrency: {
     decimals: 18,
@@ -11,8 +11,8 @@ export const harmony_mainnet = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ["https://api.s0.b.hmny.io"], // RPC endpoint for HTTP
-      webSocket: ["wss://ws.s0.b.hmny.io"], // RPC endpoint for WebSocket
+      http: ["https://api.harmony.one"], // RPC endpoint for HTTP
+      webSocket: ["wss://ws.s0.t.hmny.io "], // RPC endpoint for WebSocket
     },
   },
   blockExplorers: {
