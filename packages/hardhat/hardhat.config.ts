@@ -21,7 +21,7 @@ const etherscanApiKey = process.env.ETHERSCAN_API_KEY || "DNXJA8RX2Q3VZ4URQIWP7Z
 
 const config: HardhatUserConfig = {
   solidity: {
-    version: "0.8.17",
+    version: "0.8.20",
     settings: {
       optimizer: {
         enabled: true,
@@ -48,6 +48,11 @@ const config: HardhatUserConfig = {
     },
     mainnet: {
       url: `https://eth-mainnet.alchemyapi.io/v2/${providerApiKey}`,
+      accounts: [deployerPrivateKey],
+    },
+    harmony_testnet: {
+      url: "https://api.s0.b.hmny.io",
+      chainId: 1666700000,
       accounts: [deployerPrivateKey],
     },
     sepolia: {
