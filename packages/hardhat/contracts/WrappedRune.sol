@@ -7,8 +7,8 @@ import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract WrappedRune is ERC20, ERC20Permit, Ownable {
-    constructor(string memory name, string memory symbol, uint256 initialSupply) ERC20(name, symbol) ERC20Permit(name) Ownable() {
-        _mint(msg.sender, initialSupply);
+    constructor(string memory _name, string memory _ticker, uint256 _supply) ERC20(_name, _ticker) ERC20Permit(_name) Ownable() {
+        _mint(msg.sender, _supply);
     }
 
     // Mint new tokens
@@ -18,15 +18,16 @@ contract WrappedRune is ERC20, ERC20Permit, Ownable {
 }
 
 contract WrappedRuneFactory {
-    address[] public wrappedRuneContracts;
+    address[] public wrappedRunes;
     uint256 public wrappedRuneCount;
-    event WrappedRuneDeployed(address indexed tokenAddress, string name, string symbol, uint256 initialSupply);
+    event WrappedRuneDeployed(address tokenAddress);
 
-    function deployWrappedRune(string memory name, string memory symbol, uint256 initialSupply) external returns (address) {
-        WrappedRune wrappedRune = new WrappedRune(name, symbol, initialSupply);
-        wrappedRuneContracts.push(address(wrappedRune));
+    function deployWrappedRune(string calldata _name, string calldata _ticker, uint256 _supply) public returns (address) {
+        WrappedRune wrappedRune = new WrappedRune(_name, _ticker, _supply);
+        wrappedRune.transfer(msg.sender, _supply);
+        wrappedRunes.push(address(wrappedRune));
         wrappedRuneCount += 1;
-        emit WrappedRuneDeployed(address(wrappedRune), name, symbol, initialSupply);
+        emit WrappedRuneDeployed(address(wrappedRune));
         return address(wrappedRune);
     }
 }

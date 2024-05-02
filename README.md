@@ -1,3 +1,1 @@
-# 🏗 Scaffold-ETH 2
-
-Test.
+# 🏗 Rune to ERC20 Wrapper

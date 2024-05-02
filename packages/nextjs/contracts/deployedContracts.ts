@@ -7,23 +7,23 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   1666600000: {
     WrappedRune: {
-      address: "0xB485E2367b18077fE6126DdE60Ba01Ee33800d4c",
+      address: "0xCD8D9499Eeb738228705dF4Ea023d72be9BD78eC",
       abi: [
         {
           inputs: [
             {
               internalType: "string",
-              name: "name",
+              name: "_name",
               type: "string",
             },
             {
               internalType: "string",
-              name: "symbol",
+              name: "_ticker",
               type: "string",
             },
             {
               internalType: "uint256",
-              name: "initialSupply",
+              name: "_supply",
               type: "uint256",
             },
           ],
@@ -533,34 +533,16 @@ const deployedContracts = {
       },
     },
     WrappedRuneFactory: {
-      address: "0x97E633cC18473799cED685f6E90A01f302788B17",
+      address: "0x85C0ed4970bf6Fe4C8D4F0033B60566e4464c6b5",
       abi: [
         {
           anonymous: false,
           inputs: [
             {
-              indexed: true,
+              indexed: false,
               internalType: "address",
               name: "tokenAddress",
               type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "string",
-              name: "name",
-              type: "string",
-            },
-            {
-              indexed: false,
-              internalType: "string",
-              name: "symbol",
-              type: "string",
-            },
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "initialSupply",
-              type: "uint256",
             },
           ],
           name: "WrappedRuneDeployed",
@@ -570,17 +552,17 @@ const deployedContracts = {
           inputs: [
             {
               internalType: "string",
-              name: "name",
+              name: "_name",
               type: "string",
             },
             {
               internalType: "string",
-              name: "symbol",
+              name: "_ticker",
               type: "string",
             },
             {
               internalType: "uint256",
-              name: "initialSupply",
+              name: "_supply",
               type: "uint256",
             },
           ],
@@ -596,25 +578,6 @@ const deployedContracts = {
           type: "function",
         },
         {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          name: "wrappedRuneContracts",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
           inputs: [],
           name: "wrappedRuneCount",
           outputs: [
@@ -622,6 +585,25 @@ const deployedContracts = {
               internalType: "uint256",
               name: "",
               type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "wrappedRunes",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
             },
           ],
           stateMutability: "view",
