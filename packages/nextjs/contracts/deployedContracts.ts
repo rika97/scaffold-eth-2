@@ -7,10 +7,26 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   1666600000: {
     WrappedRune: {
-      address: "0x815174F06ef346CD3c74d397b3943E88b5578e7A",
+      address: "0xB485E2367b18077fE6126DdE60Ba01Ee33800d4c",
       abi: [
         {
-          inputs: [],
+          inputs: [
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "symbol",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "initialSupply",
+              type: "uint256",
+            },
+          ],
           stateMutability: "nonpayable",
           type: "constructor",
         },
@@ -515,6 +531,104 @@ const deployedContracts = {
         renounceOwnership: "@openzeppelin/contracts/access/Ownable.sol",
         transferOwnership: "@openzeppelin/contracts/access/Ownable.sol",
       },
+    },
+    WrappedRuneFactory: {
+      address: "0x97E633cC18473799cED685f6E90A01f302788B17",
+      abi: [
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "tokenAddress",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "symbol",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "initialSupply",
+              type: "uint256",
+            },
+          ],
+          name: "WrappedRuneDeployed",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "symbol",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "initialSupply",
+              type: "uint256",
+            },
+          ],
+          name: "deployWrappedRune",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "wrappedRuneContracts",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "wrappedRuneCount",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
     },
     YourContract: {
       address: "0x143cABd0Ae39e20027991fe545E38456dD2c121e",

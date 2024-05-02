@@ -9,7 +9,15 @@ const deployFunction: DeployFunction = async function (hre: HardhatRuntimeEnviro
 
   await deploy("WrappedRune", {
     from: deployer,
+    args: ["WrappedRune", "wRUNE", "1000000000000000000000000"],
+    log: true,
+  });
+
+  await deploy("WrappedRuneFactory", {
+    from: deployer,
+    args: [],
     log: true,
   });
 };
 export default deployFunction;
+deployFunction.tags = ["WrappedRune", "WrappedRuneFactory"];
